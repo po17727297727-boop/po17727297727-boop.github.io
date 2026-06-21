@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Qt上位机开发 — 泰克示波器协议分析、BLE蓝牙上位机">
+  <meta name="author" content="陈沛哲">
+  <meta property="og:title" content="Qt上位机 | 陈沛哲">
+  <meta property="og:description" content="C++/Qt与PyQt5跨平台上位机应用开发 — 从仪器控制到无线通信全流程">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563eb'/><text y='.68em' x='50' text-anchor='middle' font-size='50' font-family='monospace' font-weight='bold' fill='white'>CP</text></svg>">
+  <title>Qt上位机 | 陈沛哲</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    .proj-detail { margin-bottom: 60px; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
+    .proj-detail:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .proj-detail h2 { font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 24px; letter-spacing: -0.02em; line-height: 1.3; }
+    .proj-split { display: flex; gap: 40px; }
+    .proj-left { flex: 0 0 30%; min-width: 0; }
+    .proj-left img { width: 100%; object-fit: contain; background: var(--bg-tertiary); border-radius: var(--radius-sm); border: 1px solid var(--border-light); cursor: pointer; transition: opacity 0.2s; display: block; }
+    .proj-left img:hover { opacity: 0.85; }
+    .img-1 img { max-height: 520px; }
+    .img-2 { display: flex; flex-direction: column; gap: 12px; }
+    .img-2 img { max-height: 280px; }
+    .proj-right { flex: 0 0 70%; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+    .proj-right .meta-block h4 { font-size: 13px; font-weight: 700; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+    .proj-right .meta-block p { font-size: 15px; color: var(--text-secondary); line-height: 1.8; margin: 0; }
+    .proj-right .tags-row { display: flex; flex-wrap: wrap; gap: 6px; }
+    .proj-right .duties-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+    .proj-right .duties-list li { font-size: 14px; color: var(--text-secondary); padding: 12px 18px; background: var(--bg); border: 1px solid var(--border-light); border-radius: 8px; line-height: 1.7; transition: box-shadow var(--transition); }
+    .proj-right .duties-list li:hover { box-shadow: var(--shadow-sm); border-color: var(--border); }
+    .proj-right .duties-list li strong { color: var(--text); font-weight: 600; }
+    @media (max-width: 860px) { .proj-split { flex-direction: column; gap: 24px; } .proj-left, .proj-right { flex: 1 1 auto; } }
+  </style>
+</head>
+<body>
+<nav class="top-nav" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">陈沛哲</a>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="linux-driver.html">linux驱动与应用开发</a>
+      <a href="vision-ai.html">视觉图像处理与边缘AI</a>
+      <a href="qt-tool.html" class="active">qt上位机</a>
+      <a href="wireless.html">无线通信</a>
+    </div>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="container">
+    <h1>Qt 上位机</h1>
+    <p>C++/Qt · PyQt5 · 仪器控制 · 蓝牙通信 · 跨平台桌面应用</p>
+  </div>
+</section>
+
+<div class="container" style="padding-bottom:80px;" id="projectsContainer"></div>
+
+<footer class="footer"><div class="container"><p>© 2026 陈沛哲 — 嵌入式软件开发工程师</p></div></footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+  const modal = new Modal(); initLightbox();
+  const projectData = {
+    proj8:{title:"基于 Qt 的泰克示波器智能协议分析上位机开发",desc:"通过 LAN 接口与示波器建立通信获取总线信号，将模拟信号转换为数字信号后，按照 SPI/I2C 协议规范解析出帧结构、数据内容、时序信息。",tags:["Qt","SCPI","SPI/I2C","大津法"],images:["assets/images/image 7.png"],duties:["核心通信架构与标准化控制：基于 Qt 框架完成示波器上位机主体设计。利用标准 SCPI 指令集实现示波器垂直/水平/触发系统的远程自动化控制。","信号采集与高级算法处理：引入大津法自适应阈值算法，有效解决噪声干扰下的逻辑电平判定问题，实现模拟信号到数字信号的高可靠性还原。","协议解析与交互功能定制：对 SPI 和 I2C 总线深度开发。模拟波形与数字逻辑波形同屏对比显示，每帧波形动态缩放查看，实时关联显示协议数据。"]},
+    proj10:{title:"基于qt的原创的BLE蓝牙上位机",desc:"基于 PyQt5 设计的 BLE 蓝牙上位机，采用多进程并行模式实现蓝牙搜索、服务与特征选择及设备通信功能。",tags:["PyQt5","BLE","多进程","异步通信"],images:["assets/images/image 9.png","assets/images/image 10.png"],duties:["多进程并行架构设计：基于 PyQt5 与多进程重构通信底层，将蓝牙扫描、数据收发与 UI 主线程解耦，消除高频数据流导致的界面卡顿。","BLE 蓝牙设备全生命周期管理：实现 BLE 设备的自动扫描、RSSI 信号强度过滤及 MAC 地址动态解析；支持底层服务与特征值拓扑结构提取与可视化。","高性能全双工数据交互：设计稳定异步通信机制，支持下行控制指令秒级下发与上行传感器数据实时接收、解析与回显；针对大数据包实现分包发送与校验重传逻辑。"]}
+  };
+  function dutySummary(d){const i=d.indexOf("：");return i>0?d.substring(0,i):d.split(":")[0];}
+  const container=document.getElementById("projectsContainer"),ids=["proj8","proj10"];
+  ids.forEach(id=>{
+    const d=projectData[id],n=d.images.length;
+    let imgs;
+    if(n===1) imgs=`<img src="${d.images[0]}" alt="${d.title}" loading="lazy">`;
+    else imgs=d.images.map(s=>`<img src="${s}" alt="${d.title}" loading="lazy">`).join("");
+    const tags=d.tags.map(t=>`<span class="tag">${t}</span>`).join(" ");
+    const duties=d.duties.map((duty,i)=>`<li><strong>${i+1}.</strong> ${duty}</li>`).join("");
+    const card=document.createElement("div");card.className="proj-detail reveal";
+    card.innerHTML=`<h2>${d.title}</h2><div class="proj-split"><div class="proj-left img-${n}">${imgs}</div><div class="proj-right"><div class="meta-block"><h4>项目描述</h4><p>${d.desc}</p></div><div class="meta-block"><h4>技术栈</h4><div class="tags-row">${tags}</div></div><div class="meta-block"><h4>⚙️ 项目职责</h4><ol class="duties-list">${duties}</ol></div></div></div>`;
+    container.appendChild(card);
+  });
+  document.querySelectorAll(".proj-left img").forEach(img=>{img.addEventListener("click",function(){const s=this.getAttribute("src");let f;for(const id of ids){if(projectData[id].images.includes(s)){f=projectData[id];break;}}if(!f)return;const d=f;modal.open(`<h2>${d.title}</h2><p class="desc">${d.desc}</p><div class="modal-gallery">${d.images.map(s=>`<img src="${s}" alt="">`).join("")}</div><div style="margin:12px 0;">${d.tags.map(t=>`<span class="tag">${t}</span>`).join(" ")}</div><h3>⚙️ 项目职责</h3><div class="modal-duties">${d.duties.map((duty,i)=>`<div><strong>${i+1}.</strong> ${duty}</div>`).join("")}</div>`);});});
+</script>
+</body>
+</html>

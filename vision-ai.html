@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="视觉图像处理与边缘AI — YOLO检测、OpenVINO部署、NPU推理、卡尔曼滤波追踪">
+  <meta name="author" content="陈沛哲">
+  <meta property="og:title" content="视觉图像处理与边缘AI | 陈沛哲">
+  <meta property="og:description" content="从图像采集到深度学习推理 — 5个完整项目覆盖计算机视觉与边缘AI全栈技术">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563eb'/><text y='.68em' x='50' text-anchor='middle' font-size='50' font-family='monospace' font-weight='bold' fill='white'>CP</text></svg>">
+  <title>视觉图像处理与边缘AI | 陈沛哲</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    .proj-detail { margin-bottom: 60px; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
+    .proj-detail:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .proj-detail h2 { font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 24px; letter-spacing: -0.02em; line-height: 1.3; }
+    .proj-split { display: flex; gap: 40px; }
+    .proj-left { flex: 0 0 30%; min-width: 0; }
+    .proj-left img { width: 100%; object-fit: contain; background: var(--bg-tertiary); border-radius: var(--radius-sm); border: 1px solid var(--border-light); cursor: pointer; transition: opacity 0.2s; display: block; }
+    .proj-left img:hover { opacity: 0.85; }
+    .img-1 img { max-height: 520px; }
+    .img-2 { display: flex; flex-direction: column; gap: 12px; }
+    .img-2 img { max-height: 280px; }
+    .img-2-h { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .img-2-h img { max-height: 280px; }
+    .img-3 { display: flex; gap: 10px; }
+    .img-3 .img-main { flex: 1 1 55%; max-height: 440px; align-self: stretch; object-fit: contain; }
+    .img-3 .img-stack { flex: 1 1 45%; display: flex; flex-direction: column; gap: 8px; }
+    .img-3 .img-stack img { max-height: 216px; flex: 1; }
+    .img-4 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .img-4 img { max-height: 280px; }
+    .proj-right { flex: 0 0 70%; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+    .proj-right .meta-block h4 { font-size: 13px; font-weight: 700; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+    .proj-right .meta-block p { font-size: 15px; color: var(--text-secondary); line-height: 1.8; margin: 0; }
+    .proj-right .tags-row { display: flex; flex-wrap: wrap; gap: 6px; }
+    .proj-right .duties-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+    .proj-right .duties-list li { font-size: 14px; color: var(--text-secondary); padding: 12px 18px; background: var(--bg); border: 1px solid var(--border-light); border-radius: 8px; line-height: 1.7; transition: box-shadow var(--transition); }
+    .proj-right .duties-list li:hover { box-shadow: var(--shadow-sm); border-color: var(--border); }
+    .proj-right .duties-list li strong { color: var(--text); font-weight: 600; }
+    @media (max-width: 860px) { .proj-split { flex-direction: column; gap: 24px; } .proj-left, .proj-right { flex: 1 1 auto; } .img-3 { flex-direction: column; } .img-3 .img-main, .img-3 .img-stack img { max-height: 360px; } .img-4 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<nav class="top-nav" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">陈沛哲</a>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="linux-driver.html">linux驱动与应用开发</a>
+      <a href="vision-ai.html" class="active">视觉图像处理与边缘AI</a>
+      <a href="qt-tool.html">qt上位机</a>
+      <a href="wireless.html">无线通信</a>
+    </div>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="container">
+    <h1>视觉图像处理与边缘AI</h1>
+    <p>计算机视觉 · 深度学习推理 · NPU 加速 · 目标追踪 · 状态估计</p>
+  </div>
+</section>
+
+<div class="container" style="padding-bottom:80px;" id="projectsContainer"></div>
+
+<footer class="footer"><div class="container"><p>© 2026 陈沛哲 — 嵌入式软件开发工程师</p></div></footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+  const modal = new Modal(); initLightbox();
+  const projectData = {
+    proj7:{title:"基于YOLOV5与STM32的激光追踪云台系统",desc:"采用RK3588+ STM32 的双级异构方案。通过深度学习与经典图像处理算法相结合，实现多目标实时提取与姿态估计；控制端基于精密步进电机云台，实现高动态响应、高跟踪精度的闭环控制系统。",tags:["YOLOv5","INT8量化","卡尔曼滤波","逆透视变换"],images:["assets/images/image61.png","assets/images/image62.png"],duties:["高性能边缘端深度学习部署：对 YOLOv5 模型进行轻量化剪枝与 INT8 动态量化，实现 70fps+ 红绿激光光斑实时检测。优化曝光度与非极大值抑制策略。","复杂几何特征提取与逆透视映射：灰度二值化、形态学开闭运算及 Canny 算子提取边界，多边形拟合定位靶纸关键顶点，构建逆透视变换矩阵消除梯形畸变。","多时滞状态估计与卡尔曼滤波预测：构建恒定速度模型卡尔曼滤波器，时域向前预测位置偏差，实现无滞后、零拖尾的动态追踪效果。"]},
+    proj11:{title:"基于STM32H7的嵌入式边缘计算纽扣缺陷检测与自动分拣系统",desc:"以 STM32H7 高性能微控制器为核心硬件平台，通过集成轻量化深度学习模型，实现对传送带高速流水线上纽扣缺陷的实时像素级捕捉与智能识别。",tags:["STM32CubeAI","INT8量化","DMA驱动","RTOS"],images:["assets/images/image 11.png","assets/images/5ab1902f911ac608351e6508419c0bbd.jpg"],duties:["核心模型轻量化移植与边缘端推理优化：利用 STM32CubeAI / X-CUBE-AI 工具链进行 INT8 定点化量化，保证 91.5% 检测准确率前提下将单帧推理延迟降至 30ms 以内。","高实时性软硬件协同设计与自动化精密分拣：基于 RTOS 实时多任务架构设计。编写 DMA 驱动实现摄像头数据高速无损传输，设计精密时间补偿算法精确计算识别到分拣的时间差。"]},
+    proj5:{title:"基于 RT-Thread (NXP Cortex-M7) 的智能视觉搬运机器人",desc:"主导基于 NXP-MIMXRT1064 (ARM Cortex-M7 架构) 与 RT-Thread 操作系统的智能视觉搬运系统开发，打通硬件感知-异构通信-多传感器协同控制的底层全链路。",tags:["RT-Thread","MT9V034","状态机","容错恢复"],images:["assets/images/ee0c69c3-e183-4396-9551-55fc8c8935d2.png","assets/images/d6c4e611b5b53f5b84a8a3f2ed5920a0.jpg"],duties:["外设驱动与通信架构设计：完成 MT9V034 全局快门相机驱动，适配 OpenART 视觉模块并部署轻量级神经网络。","RTOS 多任务协同、状态机设计与容错恢复：构建多线程、信号量与消息队列多任务协同框架。设计分层有限状态机，调度寻迹-识别-抓取-返回全流程。","异常状态监测与在线容错恢复：针对识别错误、通信丢包、传感器突变及机械卡死等，设计自动复位、降级运行等补救策略。"]}
+  };
+  function dutySummary(d){const i=d.indexOf("：");return i>0?d.substring(0,i):d.split(":")[0];}
+  const container=document.getElementById("projectsContainer"),ids=["proj5","proj7","proj11"];
+  ids.forEach(id=>{
+    const d=projectData[id],n=d.images.length;
+    let imgs;
+    if(n===1) imgs=`<img src="${d.images[0]}" alt="${d.title}" loading="lazy">`;
+    else if(n===3){imgs=`<img src="${d.images[0]}" alt="${d.title}" loading="lazy" class="img-main"><div class="img-stack"><img src="${d.images[1]}" alt="${d.title}" loading="lazy"><img src="${d.images[2]}" alt="${d.title}" loading="lazy"></div>`;}
+    else imgs=d.images.map(s=>`<img src="${s}" alt="${d.title}" loading="lazy">`).join("");
+    const tags=d.tags.map(t=>`<span class="tag">${t}</span>`).join(" ");
+    const duties=d.duties.map((duty,i)=>`<li><strong>${i+1}.</strong> ${duty}</li>`).join("");
+    const imgCls=(id==="proj5")?"img-2-h":`img-${n}`;
+    const card=document.createElement("div");card.className="proj-detail reveal";
+    card.innerHTML=`<h2>${d.title}</h2><div class="proj-split"><div class="proj-left ${imgCls}">${imgs}</div><div class="proj-right"><div class="meta-block"><h4>项目描述</h4><p>${d.desc}</p></div><div class="meta-block"><h4>技术栈</h4><div class="tags-row">${tags}</div></div><div class="meta-block"><h4>⚙️ 项目职责</h4><ol class="duties-list">${duties}</ol></div></div></div>`;
+    container.appendChild(card);
+  });
+  document.querySelectorAll(".proj-left img").forEach(img=>{img.addEventListener("click",function(){const s=this.getAttribute("src");let f;for(const id of ids){if(projectData[id].images.includes(s)){f=projectData[id];break;}}if(!f)return;const d=f;modal.open(`<h2>${d.title}</h2><p class="desc">${d.desc}</p><div class="modal-gallery">${d.images.map(s=>`<img src="${s}" alt="">`).join("")}</div><div style="margin:12px 0;">${d.tags.map(t=>`<span class="tag">${t}</span>`).join(" ")}</div><h3>⚙️ 项目职责</h3><div class="modal-duties">${d.duties.map((duty,i)=>`<div><strong>${i+1}.</strong> ${duty}</div>`).join("")}</div>`);});});
+</script>
+</body>
+</html>

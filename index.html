@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="陈沛哲 — 嵌入式软件开发工程师，从芯片底层到上层应用的全栈嵌入式开发者">
+  <meta name="author" content="陈沛哲">
+  <meta property="og:title" content="陈沛哲 | 嵌入式软件开发工程师">
+  <meta property="og:description" content="从芯片底层到上层应用，从 Linux 内核到 AI 模型部署，全栈嵌入式工程师">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chenpeizhe.netlify.app">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563eb'/><text y='.68em' x='50' text-anchor='middle' font-size='50' font-family='monospace' font-weight='bold' fill='white'>CP</text></svg>">
+  <title>陈沛哲 | 嵌入式软件开发工程师</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Profile */
+    .profile-row { display: flex; align-items: center; gap: 32px; }
+    .profile-avatar {
+      width: 120px; height: auto; border-radius: 12px;
+      object-fit: contain; flex-shrink: 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .profile-text h1 { font-size: 36px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; }
+    .profile-text .role { font-size: 17px; color: var(--accent); font-weight: 600; margin-top: 4px; }
+    .profile-text .tagline { font-size: 14px; color: var(--text-tertiary); margin-top: 6px; line-height: 1.6; max-width: 480px; }
+
+    /* Quick stats */
+    .quick-stats { display: flex; gap: 16px; flex-wrap: wrap; }
+    .stat-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 16px; background: var(--bg);
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+      font-size: 14px; color: var(--text-secondary);
+    }
+    .stat-item .icon { font-size: 18px; }
+    .stat-item strong { color: var(--text); }
+
+    /* Experience card */
+    .exp-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px; margin-bottom: 16px;
+      transition: box-shadow var(--transition);
+    }
+    .exp-card:hover { box-shadow: var(--shadow); }
+    .exp-card h3 { font-size: 17px; font-weight: 700; color: var(--text); }
+    .exp-card .exp-meta { font-size: 13px; color: var(--text-tertiary); margin: 3px 0 8px; }
+    .exp-card .exp-meta strong { color: var(--text-secondary); font-weight: 600; }
+    .exp-card .exp-desc {
+      font-size: 14px; color: var(--text-secondary); line-height: 1.8;
+      margin-top: 10px; padding-top: 12px;
+      border-top: 1px solid var(--border-light);
+    }
+
+        /* Profile awards */
+    .profile-row { display: flex; align-items: flex-start; gap: 32px; }
+    .profile-awards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; flex: 1; margin-left: auto; }
+    .pa-card {
+      flex: 1; min-width: 130px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      display: flex; align-items: center; gap: 10px;
+      transition: all var(--transition);
+    }
+    .pa-card:hover { box-shadow: var(--shadow); border-color: transparent; }
+    .pa-icon { font-size: 28px; flex-shrink: 0; }
+    .pa-text { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.5; }
+    .pa-text small { font-size: 12px; color: var(--text-tertiary); font-weight: 400; }
+    @media (max-width: 900px) {
+      .profile-row { flex-direction: column; }
+      .profile-awards { flex-direction: column; margin-left: 0; width: 100%; }
+      .pa-card { min-width: auto; }
+    }
+        /* CTA cards */
+    .cta-card {
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      padding: 20px 12px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+    .cta-card:hover { box-shadow: var(--shadow-lg); border-color: transparent; transform: translateY(-2px); }
+        
+    .ticon:hover { box-shadow: var(--shadow); border-color: transparent; transform: translateY(-2px); }
+    @media (max-width: 900px) { .skills-wrap { flex-direction: column !important; } .tools-grid { flex: 1 1 auto !important; width: 100%; } }
+        .ticon {
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      padding: 14px 10px; background: var(--bg); border: 1px solid var(--border-light);
+      border-radius: 10px; font-size: 11px; font-weight: 600; color: var(--text-secondary);
+      transition: all var(--transition); text-align: center;
+    }
+    .ticon img { width: 32px; height: 32px; object-fit: contain; }
+    .ticon:hover { box-shadow: var(--shadow); border-color: transparent; transform: translateY(-2px); }
+    @media (max-width: 900px) { .skills-wrap { flex-direction: column !important; } .tools-grid { flex: 1 1 auto !important; width: 100%; } }
+    @media (max-width: 640px) {
+      .cta-group { grid-template-columns: repeat(2,1fr) !important; }
+    }
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      padding: 14px 10px; background: var(--bg); border: 1px solid var(--border-light);
+      border-radius: 10px; font-size: 11px; font-weight: 600; color: var(--text-secondary);
+      transition: all var(--transition); text-align: center;
+    }
+    .ticon-badge {
+      width: 40px; height: 40px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; font-weight: 800; color: #fff;
+      font-family: var(--font-mono);
+    }
+    .ticon:hover { box-shadow: var(--shadow); border-color: transparent; transform: translateY(-2px); }
+    @media (max-width: 900px) { .skills-wrap { flex-direction: column !important; } .tools-grid { flex: 1 1 auto !important; width: 100%; } }
+        .ticon {
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      padding: 14px 10px; background: var(--bg); border: 1px solid var(--border-light);
+      border-radius: 10px; font-size: 11px; font-weight: 600; color: var(--text-secondary);
+      transition: all var(--transition); text-align: center;
+    }
+    .ticon img { width: 32px; height: 32px; object-fit: contain; }
+    .ticon:hover { box-shadow: var(--shadow); border-color: transparent; transform: translateY(-2px); }
+    @media (max-width: 900px) { .skills-wrap { flex-direction: column !important; } .tools-grid { flex: 1 1 auto !important; width: 100%; } }
+    @media (max-width: 640px) {
+      .profile-row { flex-direction: column; text-align: center; gap: 16px; }
+      .profile-avatar { width: 88px; height: 88px; }
+      .profile-text h1 { font-size: 28px; }
+      .quick-stats { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="top-nav" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">陈沛哲</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">首页</a>
+      <a href="linux-driver.html">linux驱动与应用开发</a>
+      <a href="vision-ai.html">视觉图像处理与边缘AI</a>
+      <a href="qt-tool.html">qt上位机</a>
+      <a href="wireless.html">无线通信</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Profile -->
+	<section class="section" style="padding:48px 0 32px;">
+	  <div class="container">
+	    <div class="profile-row reveal">
+	      <img src="assets/images/image.png" alt="陈沛哲" class="profile-avatar">
+	      <div class="profile-text">
+	        <h1>陈沛哲</h1>
+	        <p class="role">嵌入式软件开发工程师</p>
+	        <p class="tagline">从芯片底层到上层应用，从 Linux 内核到 AI 模型部署 — 全栈嵌入式工程师</p>
+	        <p style="font-size:13px;color:var(--text-tertiary);margin-top:8px;line-height:1.8;">
+	          22岁 &nbsp;|&nbsp; 电话：17727297727 &nbsp;|&nbsp; 邮箱：932618461@qq.com &nbsp;|&nbsp; 住址：深圳市
+	        </p>
+	      </div>
+	      <div class="profile-awards">
+	        <div class="pa-card"><span class="pa-icon">🥇</span><span class="pa-text">全国大学生电子设计大赛<br><small>全国二等奖 · 2025</small></span></div>
+	        <div class="pa-card"><span class="pa-icon">🥇</span><span class="pa-text">智能汽车竞赛视觉组<br><small>全国二等奖 · 2024</small></span></div>
+	        <div class="pa-card"><span class="pa-icon">🥇</span><span class="pa-text">机甲大师步兵对抗赛<br><small>全国二等奖 · 2025</small></span></div>
+		        <div class="pa-card"><span class="pa-icon">🥈</span><span class="pa-text">全国大学生电子设计大赛<br><small>广东省二等奖 · 2023</small></span></div>
+		        <div class="pa-card"><span class="pa-icon">🏅</span><span class="pa-text">互联网+创新创业大赛<br><small>电子学院一等奖 · 2023</small></span></div>
+		        <div class="pa-card"><span class="pa-icon">📜</span><span class="pa-text">英语 CET4 证书<br><small>大学英语四级</small></span></div></div>
+	    </div>
+	    <div class="quick-stats reveal" style="margin-top:20px;">
+	      <div class="stat-item"><span class="icon">🎓</span> 惠州学院 · <strong>电子信息工程（本科）</strong></div>
+	      
+	      <div class="stat-item"><span class="icon">💼</span> <strong>3 段</strong> 企业实习经历</div>
+	      <div class="stat-item"><span class="icon">⏳</span> <strong>4 年</strong> 嵌入式开发经验</div>
+	    </div>
+	  </div>
+	</section>
+
+<!-- Skills -->
+	<section class="section section-alt" style="padding:40px 0;">
+	  <div class="container">
+	    <h2 class="section-title reveal" style="font-size:22px;">技术栈</h2>
+	    
+	      <div class="skills-wrap reveal" style="display:flex;gap:40px;align-items:flex-start;"><div class="skills-grid" style="gap:20px;flex:1;">
+	        <div class="skill-group">
+	          <h4>芯片底层 & 操作系统</h4>
+	          <div class="skill-pills">
+	            <span class="skill-pill"><a href="linux-driver.html">Linux 驱动</a></span>
+	            <span class="skill-pill"><a href="linux-driver.html">RTOS</a></span>
+	            <span class="skill-pill"><a href="linux-driver.html">V4L2</a></span>
+	            <span class="skill-pill"><a href="linux-driver.html">ISP Pipeline</a></span>
+	            <span class="skill-pill">Bootloader 裁剪</span>
+	            <span class="skill-pill">FreeRTOS</span>
+	            <span class="skill-pill">以太网/USB</span>
+	          </div>
+	        </div>
+	        <div class="skill-group">
+	          <h4>计算机视觉 & AI</h4>
+	          <div class="skill-pills">
+	            <span class="skill-pill"><a href="vision-ai.html">OpenCV</a></span>
+	            <span class="skill-pill"><a href="vision-ai.html">SGBM 立体匹配</a></span>
+	            <span class="skill-pill"><a href="vision-ai.html">透视变换</a></span>
+	            <span class="skill-pill"><a href="vision-ai.html">形态学/Canny</a></span>
+	            <span class="skill-pill"><a href="vision-ai.html">YOLO</a></span>
+	            <span class="skill-pill"><a href="vision-ai.html">OpenVINO</a></span>
+	            <span class="skill-pill"><a href="vision-ai.html">模型量化</a></span>
+	            <span class="skill-pill"><a href="vision-ai.html">NPU 加速</a></span>
+	          </div>
+	        </div>
+	        <div class="skill-group">
+	          <h4>机器人 & 控制</h4>
+	          <div class="skill-pills">
+	            <span class="skill-pill"><a href="vision-ai.html">ROS</a></span>
+	            <span class="skill-pill"><a href="vision-ai.html">PID 控制</a></span>
+	            <span class="skill-pill"><a href="vision-ai.html">卡尔曼滤波</a></span>
+	            <span class="skill-pill">IMU 姿态解算</span>
+	            <span class="skill-pill">有限状态机</span>
+	          </div>
+	        </div>
+	        <div class="skill-group">
+	          <h4>应用层 & 通信</h4>
+	          <div class="skill-pills">
+	            <span class="skill-pill"><a href="qt-tool.html">Qt / C++</a></span>
+	            <span class="skill-pill"><a href="qt-tool.html">PyQt5</a></span>
+	            <span class="skill-pill"><a href="wireless.html">BLE 协议栈</a></span>
+	            <span class="skill-pill">RTSP 流媒体</span>
+	            <span class="skill-pill">SPI / I2C / UART</span>
+	          </div>
+	        </div>
+	        <div class="skill-group">
+	          <h4>AI 编程工具</h4>
+	          <div class="skill-pills">
+	            <span class="skill-pill">Claude Code</span>
+	            <span class="skill-pill">Codex</span>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="tools-grid" style="display:grid;grid-template-columns:repeat(6,1fr);gap:10px;flex:0 0 680px;">
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg">Linux</div>
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg">C</div>
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg">C++</div>
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg">Python</div>
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/qt/qt-original.svg">Qt</div>
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg">OpenCV</div>
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ros/ros-original.svg">ROS</div>
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cmake/cmake-original.svg">CMake</div>
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg">Git</div>
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg">VS Code</div>
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg">Docker</div>
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gcc/gcc-original.svg">GCC</div>
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg">OpenVINO</div>
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg">YOLO</div>
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/stmicroelectronics.svg">STM32</div>
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/espressif.svg">ESP32</div>
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/nxp.svg">NXP</div>
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg">GitHub</div>
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/arm.svg">Keil</div>
+	        <div class="ticon"><img src="assets/icon/RK3588.png">RK3588</div>
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/anthropic.svg">Claude Code</div>
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/openai.svg">Codex</div>
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googlegemini.svg">Gemini</div>
+	        <div class="ticon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/cursor.svg">Cursor</div>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+	
+	<!-- Work Experience -->
+<section class="section" style="padding:40px 0;">
+  <div class="container">
+    <h2 class="section-title reveal" style="font-size:22px;">💼 工作经历</h2>
+
+    <div class="exp-card reveal">
+      <h3>国微-视美泰技术股份有限公司</h3>
+      <p class="exp-meta"><strong>嵌入式软件开发工程师</strong> · 2026.03 – 2026.06</p>
+      <div><span class="tag">V4L2</span><span class="tag">ISP调试</span><span class="tag">系统裁剪</span><span class="tag">RTSP</span><span class="tag">USB驱动</span></div>
+      <div class="exp-desc">负责公司视觉传感器产品线的迭代升级与新品研发，作为软件侧核心成员协同硬件、算法团队，深度参与从需求分析、系统构建到量产交付的全生命周期管理。<br><br>
+	      <strong>1. 系统裁剪与应用层性能调优：</strong> 深度裁剪优化 Bootloader 与 Linux 内核，大幅缩短系统启动时间并降低内存占用；重构应用层核心业务架构，设计基于共享内存/消息队列（IPC）的高效进程间通信机制；优化内存管理，避免运行时频繁申请释放带来的内存碎片；对多线程竞争场景进行细粒度锁优化（如读写锁/自旋锁替代互斥锁），消除线程死锁与上下文切换开销。设计并实现基于 RTSP 流媒体、HTTP 配置接口及嵌入式 Web 服务器的网络模块，集成自适应图像滤波算法。<br><br>
+	      <strong>2. 新品研发与软硬件协同：</strong> 深度参与新一代智能相机产品的从零构建，协同硬件工程师完成 BSP 移植、外设设备树配置及 Camera 驱动与硬件 ISP 调试；主导设计应用层核心业务逻辑，确保图像数据流的高效传输与处理。<br><br>
+	      <strong>3. 工程规范与交付沉淀：</strong>主导编写系统开发接口文档与自动化发布脚本流程，管理全周期软件工程文档体系与自动化发布管理。降低后续团队接手与二次开发门槛，形成可复用的产品开发规范。
+</div>
+    </div>
+
+    <div class="exp-card reveal">
+      <h3>星盟智能有限公司</h3>
+      <p class="exp-meta"><strong>嵌入式软件开发工程师</strong> · 2025.09 – 2026.02</p>
+      <div><span class="tag">视觉检测</span><span class="tag">双目标定</span><span class="tag">SGBM</span><span class="tag">Qt</span><span class="tag">系统裁剪</span></div>
+      <div class="exp-desc">以软件开发负责人角色主导多项工业自动化视觉系统的全生命周期交付。横向紧密协同硬件、产品及海外厂商（如日本武藏），深入工业一线进行需求转化与现场重构，实现从"研发对接"到"产线交付"的全流程闭环。<br><br>
+	      <strong>1. 客户交付与工业实战：</strong> 主导高精度点胶视觉测控系统与双目3D空间定位标定系统的架构设计、与海外一线厂商（日本武藏）FAE进行技术对标与方案落地；深入复杂工业现场，攻克环境干扰、多设备联调等棘手问题。<br><br>
+	      <strong>2. 关键性能优化：</strong> 通过Bootloader 裁剪、实时内核精简及 RootFS 最小化定制，将系统冷启动时间从 18s 压缩至 9s、评估机器学习、光流检测及视觉神经网络，通过自研/改良算法，将特定场景下的视觉识别准确率从 0.3 陡升至 0.9。优化多线程通信机制与内存管理，大幅降低 CPU 上下文切换开销，将视觉处理帧率从 10fps 提升至 25fps，标定算法优化将定位误差从0.1mm降低到0.02mm。<br><br>
+	      <strong>3. 跨角色协作：</strong> 与硬件工程师协同完成驱动适配与硬件联调，配合产品经理进行需求拆解与进度把控，独立开发内部协议诊断工具提升团队整体调试效率，推动多项目并行顺利交付。</div>
+    </div>
+
+    <div class="exp-card reveal">
+      <h3>佳晋通电子有限公司</h3>
+      <p class="exp-meta"><strong>嵌入式软件开发工程师</strong> · 2024.12 – 2025.03</p>
+      <div><span class="tag">BLE协议栈</span><span class="tag">Cortex-M0</span><span class="tag">ESP32</span><span class="tag">低功耗</span></div>
+      <div class="exp-desc">主导基于 Cortex-M0 及 ESP32 平台的低功耗智能定位系统研发。负责 BLE 协议栈深度定制、芯片级功耗调优及异构系统联调；独立构建 Python 辅助测试上位机，并引入动态噪声模型，实现了复杂环境下高可靠、低功耗无线终端的成功落地。<br><br>
+	      <strong>1. 底层通信协议开发：</strong> 负责Cortex-M0平台BLE协议栈二次开发，实现自定义MAC地址与可变广播间隔，主导芯片级功耗测试与优化。<br><br>
+	      <strong>2. 异构系统联调与测试：</strong> 设计开发基于 ESP32 的智能定位终端；使用 Python 独立开发蓝牙辅助联调上位机，引入动态噪声模型实现高精度定位保障系统在复杂环境下的高可靠性。</div>
+    </div>
+  </div>
+</section>
+
+<!-- Lab Experience -->
+<section class="section section-alt" style="padding:40px 0;">
+  <div class="container">
+    <h2 class="section-title reveal" style="font-size:22px;">🔬 实验室经历</h2>
+
+    <div class="exp-card reveal">
+      <h3>人形机器人实验室</h3>
+      <p class="exp-meta"><strong>嵌入式软件开发工程师</strong> · 2025.04 – 2025.06</p>
+      <div><span class="tag">ROS</span><span class="tag">YOLO</span><span class="tag">V4L2</span><span class="tag">OpenVINO</span></div>
+      <div class="exp-desc">基于sanbo机器人的二次开发，打通"底层硬件驱动-多目视觉感知-边缘AI加速-上层动力学控制"的全栈链路，实现人形机器人在三维空间中的目标定位与高动态闭环避障。<br><br>
+	      <strong>1. Linux 底层驱动与高效图像采集：</strong> 深挖 Linux 内核 V4L2 接口，采用 mmap() 系统调用建立零拷贝高速内存映射, 封装并发布标准 ROS 图像话题。<br><br>
+	      <strong>2. 高精度手眼标定：</strong> 手眼标定求解外参变换矩阵，通过 tf 监听器，实现相机坐标系、机器人中心坐标系以及世界里程计坐标系的动态空间转换。<br><br>
+	      <strong>3. 边缘端 AI 深度学习部署：</strong> YOLO 模型通过Intel OpenVINO 工具链进行 INT8 PTQ 优化，硬件加速。输出二维边界框的中心点像素坐标以及深度图。</div>
+    </div>
+
+    <div class="exp-card reveal">
+      <h3>智能车实验室</h3>
+      <p class="exp-meta"><strong>嵌入式软件开发工程师</strong> · 2024.04 – 2024.08</p>
+      <div><span class="tag">NXP Cortex-M7</span><span class="tag">RT-Thread</span><span class="tag">MT9V034</span></div>
+      <div class="exp-desc">主导基于NXP (ARM Cortex-M7 架构) 与 RT-Thread 操作系统的智能视觉搬运系统开发，打通"机械结构-硬件感知-异构通信-多传感器协同控制"的底层全链路，实现复杂工况下的精准自动化搬运。<br><br>
+	      <strong>1. 外设驱动与通信架构设计：</strong> 完成 MT9V034 全局快门相机实现复杂道路边缘及环境特征的高频图像采集与鲁棒性路径规划。<br><br>
+	      <strong>2. RTOS 多任务协同、状态机设计与容错恢复：</strong> 深入应用 RT-Thread 实时操作系统，构建基于多线程、信号量与消息队列的多任务协同处理框架。针对复杂搬运工况，设计分层有限状态机，精细化调度"寻迹-识别-抓取-返回"的全流程业务逻辑。</div>
+    </div>
+
+    <div class="exp-card reveal">
+      <h3>RM 机甲大师实验室</h3>
+      <p class="exp-meta"><strong>嵌入式软件开发工程师</strong> · 2024.09 – 2024.12</p>
+      <div><span class="tag">ROS</span><span class="tag">卡尔曼滤波</span><span class="tag">目标追踪</span></div>
+      <div class="exp-desc">基于 ROS 框架与轻量化深度学习技术。通过对海康工业相机进行底层驱动与图像采集，实现对敌方目标的实时精准识别与运动状态追踪。<br><br>
+	      <strong>1. 视觉感知与目标识别：</strong> 负责图像采集、部署并优化轻量化深度学习模型，实现对红/蓝灯条的快速、准确识别，并精准判断装甲板的型号与类型。<br><br>
+	      <strong>2. 状态估计与数据通信：</strong> 利用卡尔曼滤波算法，对目标车辆的运动轨迹进行最优估计，实现稳定追踪。将识别与预测结果封装并发布为 ROS 话题（Topic）。</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+	<section class="section" style="padding:40px 0; text-align:center;">
+	  <div class="container">
+	    <h2 class="section-title reveal" style="font-size:20px;">了解更多</h2>
+	    <div class="cta-group reveal" style="margin-top:16px; display:grid; grid-template-columns:repeat(4,1fr); gap:12px; max-width:700px; margin-left:auto; margin-right:auto;">
+	      <a href="linux-driver.html" class="cta-card">
+	        <span style="font-size:28px;">🐧</span>
+	        <span style="font-weight:700;font-size:14px;">Linux 驱动与应用开发</span>
+	        <span style="font-size:12px;color:var(--text-tertiary);">系统裁剪 · 内核驱动 · V4L2</span>
+	      </a>
+	      <a href="vision-ai.html" class="cta-card">
+	        <span style="font-size:28px;">👁️</span>
+	        <span style="font-weight:700;font-size:14px;">视觉图像处理与边缘AI</span>
+	        <span style="font-size:12px;color:var(--text-tertiary);">YOLO · OpenVINO · NPU</span>
+	      </a>
+	      <a href="qt-tool.html" class="cta-card">
+	        <span style="font-size:28px;">🖥️</span>
+	        <span style="font-weight:700;font-size:14px;">Qt 上位机</span>
+	        <span style="font-size:12px;color:var(--text-tertiary);">C++/Qt · PyQt5 · 仪器控制</span>
+	      </a>
+	      <a href="wireless.html" class="cta-card">
+	        <span style="font-size:28px;">📡</span>
+	        <span style="font-weight:700;font-size:14px;">无线通信</span>
+	        <span style="font-size:12px;color:var(--text-tertiary);">BLE · Find My · 低功耗</span>
+	      </a>
+	    </div>
+	  </div>
+	</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>© 2026 陈沛哲 — 嵌入式软件开发工程师</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

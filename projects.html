@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="陈沛哲的项目作品集 — 涵盖芯片底层、计算机视觉、边缘AI、机器人、应用层、系统架构6大技术方向，12个完整项目">
+  <meta name="author" content="陈沛哲">
+  <meta property="og:title" content="作品集 | 陈沛哲">
+  <meta property="og:description" content="12个嵌入式项目，覆盖芯片底层驱动到AI模型部署的全栈技术方向">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chenpeizhe.netlify.app/projects">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563eb'/><text y='.68em' x='50' text-anchor='middle' font-size='50' font-family='monospace' font-weight='bold' fill='white'>CP</text></svg>">
+  <title>作品集 | 陈沛哲</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="top-nav" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">陈沛哲</a>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="linux-driver.html">linux驱动与应用开发</a>
+      <a href="vision-ai.html">视觉图像处理与边缘AI</a>
+      <a href="qt-tool.html">qt上位机</a>
+      <a href="wireless.html">无线通信</a>
+    </div>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="container">
+    <h1>作品集</h1>
+    <p>涵盖 6 大技术方向 · 12 个完整项目</p>
+  </div>
+</section>
+
+<div class="container">
+  <div class="filter-bar" id="filterBar">
+    <button class="filter-btn active" data-category="all">全部</button>
+    <button class="filter-btn" data-category="embedded">芯片底层</button>
+    <button class="filter-btn" data-category="vision">计算机视觉</button>
+    <button class="filter-btn" data-category="ai">边缘AI</button>
+    <button class="filter-btn" data-category="robotics">机器人</button>
+    <button class="filter-btn" data-category="app">应用层</button>
+    <button class="filter-btn" data-category="arch">系统架构</button>
+  </div>
+</div>
+
+<div class="container" style="padding-bottom:80px;">
+
+  <div class="project-section" data-section="embedded">
+    <div class="project-section-title">📁 芯片底层与操作系统驱动</div>
+    <div class="project-grid">
+      <div class="project-card" data-category="embedded" data-id="proj1">
+        <img src="assets/images/a57346c33adfb65beecd3124a18439c3.png" alt="基于RK3588的多模相机系统">
+        <div class="project-card-body">
+          <h3>基于RK3588的RGB、EVS、TOF多模相机与智能网关系统</h3>
+          <p>结合帧视觉与类脑视觉互补优势的边缘计算视觉感知系统</p>
+          <span class="tag">uboot裁剪</span><span class="tag">V4L2</span><span class="tag">ISP Pipeline</span><span class="tag">QT上位机</span>
+        </div>
+      </div>
+      <div class="project-card" data-category="embedded" data-id="proj3">
+        <img src="assets/images/image 3.png" alt="点胶机器人视觉检测系统">
+        <div class="project-card-body">
+          <h3>点胶机器人视觉检测与双目对针系统</h3>
+          <p>面向点胶机器人的全栈视觉系统，覆盖驱动、算法与标定</p>
+          <span class="tag">全志Cortex-A</span><span class="tag">SGBM</span><span class="tag">Qt</span><span class="tag">PoE相机</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-section" data-section="vision">
+    <div class="project-section-title">📁 计算机视觉与图像信号处理</div>
+    <div class="project-grid">
+      <div class="project-card" data-category="vision" data-id="proj6">
+        <img src="assets/images/image 5.png" alt="自行瞄准机器人">
+        <div class="project-card-body">
+          <h3>基于RK3588的自行瞄准机器人</h3>
+          <p>运动底盘+二维云台+边缘视觉，高速运动下精准锁定</p>
+          <span class="tag">V4L2</span><span class="tag">Canny</span><span class="tag">逆透视变换</span><span class="tag">RGA加速</span>
+        </div>
+      </div>
+      <div class="project-card" data-category="vision" data-id="proj7">
+        <img src="assets/images/image 6.png" alt="激光追踪云台">
+        <div class="project-card-body">
+          <h3>基于YOLOV5与STM32的激光追踪云台系统</h3>
+          <p>RK3588+STM32双级异构，深度学习+经典图像处理闭环追踪</p>
+          <span class="tag">YOLOv5</span><span class="tag">INT8量化</span><span class="tag">卡尔曼滤波</span><span class="tag">逆透视变换</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-section" data-section="ai">
+    <div class="project-section-title">📁 边缘端AI与模型部署</div>
+    <div class="project-grid">
+      <div class="project-card" data-category="ai" data-id="proj2">
+        <img src="assets/images/7b2b66ddc5563cfdb76c00c500ae4933.jpg" alt="Sanbot智能服务机器人">
+        <div class="project-card-body">
+          <h3>基于Sanbot平台的智能服务机器人应用与视觉导航系统</h3>
+          <p>3D SLAM建图、多源传感器融合避障、YOLO+NVIDIA Xavier全栈控制</p>
+          <span class="tag">ROS</span><span class="tag">YOLO</span><span class="tag">OpenVINO INT8</span><span class="tag">3D定位</span>
+        </div>
+      </div>
+      <div class="project-card" data-category="ai" data-id="proj4">
+        <img src="assets/images/a4b52893-1647-473c-b0c4-5d0f072a39e2.png" alt="边缘计算图传机器人">
+        <div class="project-card-body">
+          <h3>基于RK3588的边缘计算图传移动机器人控制系统</h3>
+          <p>Linux视觉计算节点+FreeRTOS MCU，Web服务器+NPU推理+DMA通信</p>
+          <span class="tag">Flask</span><span class="tag">MJPEG</span><span class="tag">NPU推理</span><span class="tag">FreeRTOS</span>
+        </div>
+      </div>
+      <div class="project-card" data-category="ai" data-id="proj11">
+        <img src="assets/images/image 11.png" alt="纽扣缺陷检测">
+        <div class="project-card-body">
+          <h3>基于STM32H7的嵌入式边缘计算纽扣缺陷检测与自动分拣系统</h3>
+          <p>STM32H7+轻量化深度学习，传送带实时缺陷识别与精密分拣</p>
+          <span class="tag">STM32CubeAI</span><span class="tag">INT8量化</span><span class="tag">DMA驱动</span><span class="tag">RTOS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-section" data-section="robotics">
+    <div class="project-section-title">📁 机器人控制</div>
+    <div class="project-grid">
+      <div class="project-card" data-category="robotics" data-id="proj5">
+        <img src="assets/images/ee0c69c3-e183-4396-9551-55fc8c8935d2.png" alt="智能视觉搬运机器人">
+        <div class="project-card-body">
+          <h3>基于RT-Thread的智能视觉搬运机器人</h3>
+          <p>NXP Cortex-M7+RT-Thread，硬件感知-异构通信-多传感器协同全链路</p>
+          <span class="tag">RT-Thread</span><span class="tag">MT9V034</span><span class="tag">状态机</span><span class="tag">容错恢复</span>
+        </div>
+      </div>
+      <div class="project-card" data-category="robotics" data-id="proj12">
+        <img src="assets/images/image 12.png" alt="蓝牙平衡小车">
+        <div class="project-card-body">
+          <h3>基于STM32的蓝牙平衡小车</h3>
+          <p>MPU6050+互补滤波/卡尔曼滤波姿态解算，串级PID，手机蓝牙遥控</p>
+          <span class="tag">PID控制</span><span class="tag">卡尔曼滤波</span><span class="tag">HC-05</span><span class="tag">MPU6050</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-section" data-section="app">
+    <div class="project-section-title">📁 应用层开发与跨平台上位机</div>
+    <div class="project-grid">
+      <div class="project-card" data-category="app" data-id="proj8">
+        <img src="assets/images/image 7.png" alt="泰克示波器上位机">
+        <div class="project-card-body">
+          <h3>基于Qt的泰克示波器智能协议分析上位机</h3>
+          <p>LAN通信+SCPI指令集，SPI/I2C协议解析，大津法自适应阈值波形转换</p>
+          <span class="tag">Qt</span><span class="tag">SCPI</span><span class="tag">SPI/I2C</span><span class="tag">大津法</span>
+        </div>
+      </div>
+      <div class="project-card" data-category="app" data-id="proj10">
+        <img src="assets/images/image 9.png" alt="BLE蓝牙上位机">
+        <div class="project-card-body">
+          <h3>基于Qt的原创BLE蓝牙上位机</h3>
+          <p>PyQt5多进程并行架构，BLE全生命周期管理，全双工异步通信</p>
+          <span class="tag">PyQt5</span><span class="tag">BLE</span><span class="tag">多进程</span><span class="tag">异步通信</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-section" data-section="arch">
+    <div class="project-section-title">📁 系统架构、并发与网络传输</div>
+    <div class="project-grid">
+      <div class="project-card" data-category="arch" data-id="proj9">
+        <img src="assets/images/image 8.png" alt="BLE Find My定位系统">
+        <div class="project-card-body">
+          <h3>基于BLE协议栈与Find My网络的低功耗智能定位系统</h3>
+          <p>BLE协议栈深度定制+苹果Find My协议兼容，无需GPS实现全球盲区追踪</p>
+          <span class="tag">BLE协议栈</span><span class="tag">Find My</span><span class="tag">微信小程序</span><span class="tag">低功耗</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>© 2026 陈沛哲 — 嵌入式软件开发工程师</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+  initFilter("#filterBar", ".project-card");
+
+  const modal = new Modal();
+  initLightbox();
+
+  // Build ordered list of all project card IDs
+  const projectOrder = [];
+  document.querySelectorAll(".project-card").forEach(c => projectOrder.push(c.dataset.id));
+
+  function openProject(projectId) {
+    const data = projectData[projectId];
+    if (!data) return;
+    const idx = projectOrder.indexOf(projectId);
+    const prevId = idx > 0 ? projectOrder[idx - 1] : null;
+    const nextId = idx < projectOrder.length - 1 ? projectOrder[idx + 1] : null;
+
+    const imagesHTML = data.images.map(src => `<img src="${src}" alt="">`).join("");
+    const tagsHTML = data.tags.map(t => `<span class="tag">${t}</span>`).join(" ");
+    const dutiesHTML = data.duties.map((d,i) => `<div><strong>${i+1}.</strong> ${d}</div>`).join("");
+
+    modal.open(`
+      <h2>${data.title}</h2>
+      <p class="desc">${data.desc}</p>
+      <div class="modal-gallery">${imagesHTML}</div>
+      <div style="margin:12px 0;">${tagsHTML}</div>
+      <h3>⚙️ 项目职责</h3>
+      <div class="modal-duties">${dutiesHTML}</div>
+    `, {
+      onPrev: prevId ? () => openProject(prevId) : null,
+      onNext: nextId ? () => openProject(nextId) : null
+    });
+  }
+
+  document.querySelectorAll(".project-card").forEach(card => {
+    card.addEventListener("click", () => openProject(card.dataset.id));
+  });
+
+  // Full project data
+  const projectData = {
+    proj1: {
+      title: "基于RK3588的RGB、EVS、TOF多模相机与智能网关系统",
+      desc: "结合传统帧视觉（RGB）与前沿类脑视觉（EVS事件相机、ToF雷视相机）的互补优势，打造一款高性能、高智能的边缘计算视觉感知与管理系统。系统由RK3588双路采集端、Qt多功能上位机和RK智能边缘网关三部分组成，打通了从底层硬件驱动、网络流媒体传输、桌面交互控制到顶层大模型（LLM）语义分析的全栈链路。",
+      tags: ["uboot裁剪","内核驱动","事件相机","深度相机","V4L2","ISP Pipeline","QT上位机"],
+      images: ["assets/images/a57346c33adfb65beecd3124a18439c3.png","assets/images/2c1297ca4c178fc722df9b50fd882460.jpg"],
+      duties: [
+        "Bootloader与内核移植与裁剪优化：裁剪蓝牙/WiFi、触摸屏、HDMI PHY等无关驱动，内核镜像精简 30%+；编写设备树，通过 DTSI 层级复用实现配置模块化管理。",
+        "相机驱动开发：基于 V4L2 子设备框架完成 3 款传感器的 Linux 内核驱动开发与适配。实现 V4L2 标准 ops：s_power、s_stream、get/set_fmt、s_ctrl。标定加载IQ 标定文件，调用rkaiq实现 ISP 调优与rgb图像推流进程。",
+        "以太网USB驱动及应用开发：配置 USB ConfigFS 复合设备，通过FunctionFS 开辟 3 个 Bulk 端点，利用异步 I/O + POSIX 共享内存实现零拷贝传输。开发 TCP 发送EVS、ToF数据、RTSP流传输RGB视频流以及Web服务器，实现网络配置与进程管理。",
+        "Recovery分区的OTA差分升级：设计 eMMC 分区表，通过 misc 分区传递升级命令与状态。构建 Recovery 系统，打包 FIT Image，RSA2048 + SHA256 双重签名验证，QT 客户端读取 .img 文件 → 进入升级模式 → Bulk 传输固件数据 → 触发 Recovery 烧写。",
+        "QT上位机设计：实现双路（RGB+EVS）实时预览并对EVS进行滤波渲染。采用原子指针交换实现 USB 回调线程与 Qt 主线程间的无锁显示。设计同步录制功能，通过ffmpeg 转码 MP4保存。支持RGB与EVS视频回放（速度可调、逐帧步进、时间轴拖拽、循环播放）。实现传感器参数实时控制，通过 USB Vendor 命令实现曝光/增益模式与参数的调节。",
+        "全周期软件工程文档体系与自动化发布管理：主导应用层软件设计文档的规范化编写与持续维护。设计自动化 Release 脚本，集成 Git 拉取、CMake 编译构建、Diff 变更提取三阶段流水线。"
+      ]
+    },
+    proj2: {
+      title: "基于 Sanbot 平台的智能服务机器人应用与视觉导航系统开发",
+      desc: "全向服务机器人二次开发，构建集 3D SLAM 建图、多源传感器融合避障、自主回充、多自由度肢体舞蹈于一体的智能控制系统。主导搭建基于边缘计算的高实时性视觉框架，实现基于 YOLO 的目标检测、高精度 3D 空间定位、人脸识别。",
+      tags: ["ROS","YOLO","OpenVINO INT8","3D定位"],
+      images: ["assets/images/7b2b66ddc5563cfdb76c00c500ae4933.jpg","assets/images/image 1.png","assets/images/image 2.png"],
+      duties: [
+        "高效图像采集与 Linux 底层驱动优化：基于 UVC 协议深挖 Linux 内核 V4L2 接口，通过 mmap() 系统调用建立零拷贝高速内存映射，实现图像数据的高效流转；编写多线程硬解码模块，将原始 MJPEG 字节流实时解码为 BGR8 像素矩阵。精调USB 相机底层参数。",
+        "异构多目时空同步与高精度手眼标定：利用 ROS 的 message_filters 异步时间同步策略，对高频彩色帧与深度帧实施像素级的时间戳对齐。通过手眼标定求解外参变换矩阵。",
+        "边缘端 AI 深度学习部署与 3D 空间几何解算：将 YOLO 模型转换为 ONNX 格式，通过 OpenVINO INT8 PTQ 优化生成 IR 模型。利用小孔成像模型反投影解算出目标真实三维坐标。",
+        "多源传感器融合代价地图与全向动力学决策：视觉障碍物 3D 坐标、点云数据、超声波测距多源融合，输入导航代价地图（costmap_2d），实现丝滑避障与高精度运动闭环。"
+      ]
+    },
+    proj3: {
+      title: "点胶机器人视觉检测与双目对针系统",
+      desc: "负责面向点胶机器人的全栈视觉系统研发，覆盖嵌入式 Linux 底层驱动、复杂光学场景下的点胶缺陷检测算法、双目对针标定与实时闭环控制，以及跨平台上位机应用开发。",
+      tags: ["全志Cortex-A","SGBM","Qt","PoE相机"],
+      images: ["assets/images/image 3.png"],
+      duties: [
+        "嵌入式系统裁剪与底层驱动开发：针对全志ARM Cortex-A核心进行Linux系统裁剪与内核优化，使用CMake/Makefile管理交叉编译工程，编写并优化底层相机与运动控制驱动。",
+        "Linux 多线程调度与实时通信架构：构建高并发任务调度器，综合运用互斥锁、条件变量与消息队列等 IPC 机制，精准同步点胶状态。",
+        "跨平台上位机应用开发：使用 C++/Qt 框架独立开发 Linux 原生视觉测控应用，完成 PoE 工业相机驱动适配与高帧率拉流；设计局域网 TCP/IP 通信链路。",
+        "复杂动态点胶视觉检测算法：针对胶水透明及背景强反光痛点，设计光电解耦物理成像链路。自主开发时域动态流动分析算法，解决漏胶/断胶的高频误报难题。",
+        "双目对针视觉标定与亚像素闭环定位：采用张正友棋盘格标定法完成双目内参估计。SGBM稠密视差图计算，多项式回归将定位精度从整像素提升至0.1像素量级。"
+      ]
+    },
+    proj4: {
+      title: "基于RK3588的边缘计算图传移动机器人控制系统",
+      desc: "主导图传移动机器人嵌入式异构平台——以搭载 RK3588 为核心 Linux 视觉计算节点，搭载web服务器，协同底层 MCU (FreeRTOS) 进行联合开发，支撑机器人在复杂工况下的高实时视觉侦察与图像传输。",
+      tags: ["Flask","MJPEG","NPU推理","FreeRTOS"],
+      images: ["assets/images/a4b52893-1647-473c-b0c4-5d0f072a39e2.png","assets/images/image 4.png"],
+      duties: [
+        "轻量化远程控制与图传 Web 服务器构建：基于 Flask 框架搭建嵌入式 Web 服务器。采用流式传输机制实现低延迟实时视频流（MJPEG）网页端渲染与显示。",
+        "端侧 AI 部署与并发优化：部署 YOLO 目标检测模型。构建高效多线程池架构，将图像拉流、NPU 硬件推理与坐标后处理解耦为异步流水线。",
+        "多任务异构底层协同与精细运动控制：基于 STM32 平台定制 FreeRTOS 多任务实时操作系统。设计高可靠性自定义帧格式校验协议，通过 DMA 串口实现超低延迟双向通信。"
+      ]
+    },
+    proj5: {
+      title: "基于 RT-Thread (NXP Cortex-M7) 的智能视觉搬运机器人",
+      desc: "主导基于 NXP-MIMXRT1064 (ARM Cortex-M7 架构) 与 RT-Thread 操作系统的智能视觉搬运系统开发，打通硬件感知-异构通信-多传感器协同控制的底层全链路。",
+      tags: ["RT-Thread","MT9V034","状态机","容错恢复"],
+      images: ["assets/images/ee0c69c3-e183-4396-9551-55fc8c8935d2.png","assets/images/d6c4e611b5b53f5b84a8a3f2ed5920a0.jpg"],
+      duties: [
+        "外设驱动与通信架构设计：完成 MT9V034 全局快门相机驱动，适配 OpenART 视觉模块并部署轻量级神经网络。",
+        "RTOS 多任务协同、状态机设计与容错恢复：构建多线程、信号量与消息队列多任务协同框架。设计分层有限状态机，调度寻迹-识别-抓取-返回全流程。",
+        "异常状态监测与在线容错恢复：针对识别错误、通信丢包、传感器突变及机械卡死等，设计自动复位、降级运行等补救策略。"
+      ]
+    },
+    proj6: {
+      title: "基于RK3588的自行瞄准机器人",
+      desc: "采用运动底盘 + 二维精密云台 + 顶配边缘视觉的三位一体架构。实现高速运动状态下对目标靶的动对动高频精准锁定。",
+      tags: ["V4L2","Canny边缘检测","逆透视变换","RGA加速"],
+      images: ["assets/images/image 5.png","assets/images/d4310c5c09050daf2b3a0432ce075644.jpg"],
+      duties: [
+        "图像采集预处理与传输：构建 V4L2 与 RGA 嵌入式视频传输链路，引入硬件加速引擎实现数据零拷贝机制。",
+        "图像预处理与目标识别：高斯模糊平滑噪点，反二值化凸显暗色目标，Canny边缘检测提取几何轮廓，闭运算消除断点孔洞，多边形逼近校验几何特征。",
+        "逆透视几何校正：对矩形外框角点固定顺序排列，通过预知靶标实际尺寸创建透视变换矩阵，将倾斜靶面展平为正视图。",
+        "双轨数据解算与反向映射：利用逆变换矩阵将空间中心反变换回原图，面积倒数根号比模型估计距离，Y方向线性插值补偿。"
+      ]
+    },
+    proj7: {
+      title: "基于YOLOV5与STM32的激光追踪云台系统",
+      desc: "采用RK3588+ STM32 的双级异构方案。通过深度学习与经典图像处理算法相结合，实现多目标实时提取与姿态估计；控制端基于精密步进电机云台，实现高动态响应、高跟踪精度的闭环控制系统。",
+      tags: ["YOLOv5","INT8量化","卡尔曼滤波","逆透视变换"],
+      images: ["assets/images/image 6.png"],
+      duties: [
+        "高性能边缘端深度学习部署：对 YOLOv5 模型进行轻量化剪枝与 INT8 动态量化，实现 70fps+ 红绿激光光斑实时检测。优化曝光度与非极大值抑制策略。",
+        "复杂几何特征提取与逆透视映射：灰度二值化、形态学开闭运算及 Canny 算子提取边界，多边形拟合定位靶纸关键顶点，构建逆透视变换矩阵消除梯形畸变。",
+        "多时滞状态估计与卡尔曼滤波预测：构建恒定速度模型卡尔曼滤波器，时域向前预测位置偏差，实现无滞后、零拖尾的动态追踪效果。"
+      ]
+    },
+    proj8: {
+      title: "基于 Qt 的泰克示波器智能协议分析上位机开发",
+      desc: "通过 LAN 接口与示波器建立通信获取总线信号，将模拟信号转换为数字信号后，按照 SPI/I2C 协议规范解析出帧结构、数据内容、时序信息。",
+      tags: ["Qt","SCPI","SPI/I2C","大津法"],
+      images: ["assets/images/image 7.png"],
+      duties: [
+        "核心通信架构与标准化控制：基于 Qt 框架完成示波器上位机主体设计。利用标准 SCPI 指令集实现示波器垂直/水平/触发系统的远程自动化控制。",
+        "信号采集与高级算法处理：引入大津法自适应阈值算法，有效解决噪声干扰下的逻辑电平判定问题，实现模拟信号到数字信号的高可靠性还原。",
+        "协议解析与交互功能定制：对 SPI 和 I2C 总线深度开发。模拟波形与数字逻辑波形同屏对比显示，每帧波形动态缩放查看，实时关联显示协议数据。"
+      ]
+    },
+    proj9: {
+      title: "基于 BLE 协议栈与 Find My 网络的低功耗智能定位系统",
+      desc: "基于蓝牙 BLE 协议栈进行二次开发，深度兼容苹果 Find My 定位协议。通过设备端发送加密广播包、苹果生态设备网络协同感知、云端服务器解密中转以及微信小程序前端交互，实现无需 GPS 模块的全球盲区追踪。",
+      tags: ["BLE协议栈","Find My","微信小程序","低功耗"],
+      images: ["assets/images/image 8.png","assets/images/50d1991495520fcaa28776654e4e07e0.png"],
+      duties: [
+        "BLE 协议栈二次开发：实现私有 MAC 地址的配置与加密 RawData 数据广播，设计可变广播间隔策略。",
+        "前端应用开发：设计设备绑定功能，通过输入/扫描唯一设备码建立微信用户与定位器硬件的绑定关系。调用API获取服务器解密的位置数据，利用微信原生 map 组件渲染。"
+      ]
+    },
+    proj10: {
+      title: "基于qt的原创的BLE蓝牙上位机",
+      desc: "基于 PyQt5 设计的 BLE 蓝牙上位机，采用多进程并行模式实现蓝牙搜索、服务与特征选择及设备通信功能。",
+      tags: ["PyQt5","BLE","多进程","异步通信"],
+      images: ["assets/images/image 9.png","assets/images/image 10.png"],
+      duties: [
+        "多进程并行架构设计：基于 PyQt5 与多进程重构通信底层，将蓝牙扫描、数据收发与 UI 主线程解耦，消除高频数据流导致的界面卡顿。",
+        "BLE 蓝牙设备全生命周期管理：实现 BLE 设备的自动扫描、RSSI 信号强度过滤及 MAC 地址动态解析；支持底层服务与特征值拓扑结构提取与可视化。",
+        "高性能全双工数据交互：设计稳定异步通信机制，支持下行控制指令秒级下发与上行传感器数据实时接收、解析与回显；针对大数据包实现分包发送与校验重传逻辑。"
+      ]
+    },
+    proj11: {
+      title: "基于STM32H7的嵌入式边缘计算纽扣缺陷检测与自动分拣系统",
+      desc: "以 STM32H7 高性能微控制器为核心硬件平台，通过集成轻量化深度学习模型，实现对传送带高速流水线上纽扣缺陷的实时像素级捕捉与智能识别。",
+      tags: ["STM32CubeAI","INT8量化","DMA驱动","RTOS"],
+      images: ["assets/images/image 11.png","assets/images/5ab1902f911ac608351e6508419c0bbd.jpg"],
+      duties: [
+        "核心模型轻量化移植与边缘端推理优化：利用 STM32CubeAI / X-CUBE-AI 工具链进行 INT8 定点化量化，保证 91.5% 检测准确率前提下将单帧推理延迟降至 30ms 以内。",
+        "高实时性软硬件协同设计与自动化精密分拣：基于 RTOS 实时多任务架构设计。编写 DMA 驱动实现摄像头数据高速无损传输，设计精密时间补偿算法精确计算识别到分拣的时间差。"
+      ]
+    },
+    proj12: {
+      title: "基于stm32的蓝牙平衡小车",
+      desc: "基于 STM32 控制器与 HC_05 蓝牙模块构建的双轮平衡小车，通过姿态控制算法与 PID 电机控制算法实现稳定平衡与移动，支持手机 APP 蓝牙远程操控。",
+      tags: ["PID控制","卡尔曼滤波","HC-05","MPU6050"],
+      images: ["assets/images/image 12.png"],
+      duties: [
+        "运动姿态自平衡解算：利用 MPU6050，编写互补滤波/卡尔曼滤波算法融合加速度与角速度数据，实现高精度、低延迟的车体倾角与角速度解算。",
+        "控制算法设计：设计并调试直立环、速度环、转向环的串级 PID 控制算法，实现小车在静态及动态干扰下的快速自平衡稳定。"
+      ]
+    }
+  };
+</script>
+</body>
+</html>

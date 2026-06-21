@@ -1,0 +1,6 @@
+.claude/
+docs/superpowers/
+ExportBlock-*
+*.docx
+test.html
+fix_duties.py

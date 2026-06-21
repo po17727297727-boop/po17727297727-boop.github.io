@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Linux驱动与应用开发 — 基于RK3588的多模相机、Sanbot机器人、点胶机器人视觉系统">
+  <meta name="author" content="陈沛哲">
+  <meta property="og:title" content="Linux驱动与应用开发 | 陈沛哲">
+  <meta property="og:description" content="系统裁剪、内核驱动、V4L2、ISP Pipeline — 从芯片底层到智能系统的全栈实践">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563eb'/><text y='.68em' x='50' text-anchor='middle' font-size='50' font-family='monospace' font-weight='bold' fill='white'>CP</text></svg>">
+  <title>Linux驱动与应用开发 | 陈沛哲</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    .proj-detail {
+      margin-bottom: 60px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .proj-detail:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .proj-detail h2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+    }
+
+    /* 50/50 split */
+    .proj-split {
+      display: flex;
+      gap: 40px;
+    }
+
+    /* Left: images */
+    .proj-left { flex: 0 0 30%;
+      min-width: 0;
+    }
+    .proj-left img {
+      width: 100%;
+      object-fit: contain;
+      background: var(--bg-tertiary);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      cursor: pointer;
+      transition: opacity 0.2s;
+      display: block;
+    }
+    .proj-left img:hover { opacity: 0.85; }
+
+    /* 1 image */
+    .img-1 img { max-height: 520px; }
+
+    /* 2 images: stacked */
+    .img-2 { display: flex; flex-direction: column; gap: 12px; }
+    .img-2 img { max-height: 280px; }
+
+    /* 3 images: left large + right 2 stacked */
+    .img-3 { display: flex; gap: 10px; }
+    .img-3 .img-main { flex: 1 1 55%; max-height: 440px; align-self: stretch; object-fit: contain; }
+    .img-3 .img-stack { flex: 1 1 45%; display: flex; flex-direction: column; gap: 8px; }
+    .img-3 .img-stack img { max-height: 216px; flex: 1; }
+
+    /* Right: meta */
+    .proj-right { flex: 0 0 70%;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .proj-right .meta-block h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+    .proj-right .meta-block p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin: 0;
+    }
+    .proj-right .tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .proj-right .duties-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .proj-right .duties-list li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      padding: 12px 18px;
+      background: var(--bg);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      line-height: 1.7;
+      transition: box-shadow var(--transition);
+    }
+    .proj-right .duties-list li:hover {
+      box-shadow: var(--shadow-sm);
+      border-color: var(--border);
+    }
+    .proj-right .duties-list li strong { color: var(--text); font-weight: 600; }
+
+    @media (max-width: 860px) {
+      .proj-split { flex-direction: column; gap: 24px; }
+      .proj-left, .proj-right { flex: 1 1 auto; }
+      .img-3 { flex-direction: column; }
+      .img-3 .img-main, .img-3 .img-stack img { max-height: 360px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="top-nav" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">陈沛哲</a>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="linux-driver.html" class="active">linux驱动与应用开发</a>
+      <a href="vision-ai.html">视觉图像处理与边缘AI</a>
+      <a href="qt-tool.html">qt上位机</a>
+      <a href="wireless.html">无线通信</a>
+    </div>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="container">
+    <h1>Linux 驱动与应用开发</h1>
+    <p>系统裁剪 · 内核驱动 · V4L2 · ISP Pipeline · 智能系统集成</p>
+  </div>
+</section>
+
+<div class="container" style="padding-bottom:80px;" id="projectsContainer"></div>
+
+<footer class="footer">
+  <div class="container">
+    <p>© 2026 陈沛哲 — 嵌入式软件开发工程师</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+  const modal = new Modal();
+  initLightbox();
+
+  const projectData = {
+    proj1: {
+      title: "基于RK3588的RGB、EVS、TOF多模相机与智能网关系统",
+      desc: "结合传统帧视觉（RGB）与前沿类脑视觉（EVS事件相机、ToF雷视相机）的互补优势，打造一款高性能、高智能的边缘计算视觉感知与管理系统。系统由RK3588双路采集端、Qt多功能上位机和RK智能边缘网关三部分组成，打通了从底层硬件驱动、网络流媒体传输、桌面交互控制到顶层大模型（LLM）语义分析的全栈链路。",
+      tags: ["uboot裁剪","内核驱动","事件相机","深度相机","V4L2","ISP Pipeline","QT上位机"],
+      images: ["assets/images/a57346c33adfb65beecd3124a18439c3.png","assets/images/2c1297ca4c178fc722df9b50fd882460.jpg"],
+      duties: [
+        "Bootloader与内核移植与裁剪优化：裁剪蓝牙/WiFi、触摸屏、HDMI PHY等无关驱动，内核镜像精简 30%+；编写设备树，通过 DTSI 层级复用实现配置模块化管理。",
+        "相机驱动开发：基于 V4L2 子设备框架完成 3 款传感器的 Linux 内核驱动开发与适配。实现 V4L2 标准 ops：s_power、s_stream、get/set_fmt、s_ctrl。标定加载IQ 标定文件，调用rkaiq实现 ISP 调优与rgb图像推流进程。",
+        "以太网USB驱动及应用开发：配置 USB ConfigFS 复合设备，通过FunctionFS 开辟 3 个 Bulk 端点，利用异步 I/O + POSIX 共享内存实现零拷贝传输。开发 TCP 发送EVS、ToF数据、RTSP流传输RGB视频流以及Web服务器，实现网络配置与进程管理。",
+        "Recovery分区的OTA差分升级：设计 eMMC 分区表，通过 misc 分区传递升级命令与状态。构建 Recovery 系统，打包 FIT Image，RSA2048 + SHA256 双重签名验证，QT 客户端读取 .img 文件 → 进入升级模式 → Bulk 传输固件数据 → 触发 Recovery 烧写。",
+        "QT上位机设计：实现双路（RGB+EVS）实时预览并对EVS进行滤波渲染。采用原子指针交换实现 USB 回调线程与 Qt 主线程间的无锁显示。设计同步录制功能，通过ffmpeg 转码 MP4保存。支持RGB与EVS视频回放（速度可调、逐帧步进、时间轴拖拽、循环播放）。实现传感器参数实时控制，通过 USB Vendor 命令实现曝光/增益模式与参数的调节。",
+        "全周期软件工程文档体系与自动化发布管理：主导应用层软件设计文档的规范化编写与持续维护。设计自动化 Release 脚本，集成 Git 拉取、CMake 编译构建、Diff 变更提取三阶段流水线。"
+      ]
+    },
+    proj2: {
+      title: "基于 Sanbot 平台的智能服务机器人应用与视觉导航系统开发",
+      desc: "全向服务机器人二次开发，构建集 3D SLAM 建图、多源传感器融合避障、自主回充、多自由度肢体舞蹈于一体的智能控制系统。主导搭建基于边缘计算的高实时性视觉框架，实现基于 YOLO 的目标检测、高精度 3D 空间定位、人脸识别。",
+      tags: ["ROS","YOLO","OpenVINO INT8","3D定位"],
+      images: ["assets/images/7b2b66ddc5563cfdb76c00c500ae4933.jpg","assets/images/image 1.png","assets/images/image 2.png"],
+      duties: [
+        "高效图像采集与 Linux 底层驱动优化：深挖 Linux 内核 V4L2 框架，通过 mmap() 系统调用构建内核空间到用户空间的零拷贝高速共享内存映射，大幅降低 CPU 上下文切换与内存拷贝开销。设计高并发多线程/线程池架构，构建多缓冲区队列，实现图像采集与解码的解耦并行处理；",
+        "异构多目时空同步与高精度手眼标定：利用 ROS 的 message_filters 异步时间同步策略，对高频彩色帧与深度帧实施像素级的时间戳对齐。通过手眼标定求解外参变换矩阵。",
+        "边缘端 AI 算力优化与信号处理：针对深度相机原始数据及传感器噪声，编写时域/空域滤波器，进行信号去噪与平滑处理，提升特征点提取精度。将 YOLO 拓扑结构转化为 ONNX 格式，通过 OpenVINO 进行 INT8 量化（PTQ）优化，充分压榨边缘端 CPU/NPU 的并行计算算力。",
+        "多源传感器融合代价地图与全向动力学决策：视觉障碍物 3D 坐标、点云数据、超声波测距多源融合，输入导航代价地图（costmap_2d），实现丝滑避障与高精度运动闭环。"
+      ]
+    },
+    proj3: {
+      title: "点胶机器人视觉检测与双目对针系统",
+      desc: "负责面向点胶机器人的全栈视觉系统研发，覆盖嵌入式 Linux 底层驱动、复杂光学场景下的点胶缺陷检测算法、双目对针标定与实时闭环控制，以及跨平台上位机应用开发。",
+      tags: ["全志Cortex-A","SGBM","Qt","PoE相机"],
+      images: ["assets/images/image31.png", "assets/images/image32.png"],
+      duties: [
+        "嵌入式系统裁剪与底层驱动开发：针对全志ARM Cortex-A核心进行Linux系统裁剪与内核优化，使用CMake/Makefile管理交叉编译工程，编写并优化底层相机与运动控制驱动。",
+        "Linux 多线程调度与实时通信架构：构建高并发任务调度器，综合运用互斥锁、条件变量与消息队列等 IPC 机制，精准同步点胶状态。",
+        "跨平台上位机应用开发：使用 C++/Qt 框架独立开发 Linux 原生视觉测控应用，完成 PoE 工业相机驱动适配与高帧率拉流；设计局域网 TCP/IP 通信链路。",
+        "复杂动态点胶视觉检测算法：针对胶水透明及背景强反光痛点，设计光电解耦物理成像链路。自主开发时域动态流动分析算法，解决漏胶/断胶的高频误报难题。",
+        "双目对针视觉标定与亚像素闭环定位：采用张正友棋盘格标定法完成双目内参估计。SGBM稠密视差图计算，多项式回归将定位精度从整像素提升至0.1像素量级。"
+      ]
+    },
+    proj6: {
+      title: "基于RK3588的自行瞄准机器人",
+      desc: "采用运动底盘 + 二维精密云台 + 顶配边缘视觉的三位一体架构。实现高速运动状态下对目标靶的动对动高频精准锁定。",
+      tags: ["V4L2","Canny边缘检测","逆透视变换","RGA加速"],
+      images: ["assets/images/image 5.png","assets/images/d4310c5c09050daf2b3a0432ce075644.jpg"],
+      duties: [
+        "图像采集预处理与传输：构建 V4L2 与 RGA 嵌入式视频传输链路，引入硬件加速引擎实现数据零拷贝机制。",
+        "图像预处理与目标识别：高斯模糊平滑噪点，反二值化凸显暗色目标，Canny边缘检测提取几何轮廓，闭运算消除断点孔洞，多边形逼近校验几何特征。",
+        "逆透视几何校正：对矩形外框角点固定顺序排列，通过预知靶标实际尺寸创建透视变换矩阵，将倾斜靶面展平为正视图。",
+        "双轨数据解算与反向映射：利用逆变换矩阵将空间中心反变换回原图，面积倒数根号比模型估计距离，Y方向线性插值补偿。"
+      ]
+    },
+    proj4: {
+      title: "基于RK3588的边缘计算图传移动机器人控制系统",
+      desc: "主导图传移动机器人嵌入式异构平台——以搭载 RK3588 为核心 Linux 视觉计算节点，搭载web服务器，协同底层 MCU (FreeRTOS) 进行联合开发，支撑机器人在复杂工况下的高实时视觉侦察与图像传输。",
+      tags: ["Flask","MJPEG","NPU推理","FreeRTOS"],
+      images: ["assets/images/a4b52893-1647-473c-b0c4-5d0f072a39e2.png","assets/images/image 4.png"],
+      duties: [
+        "轻量化远程控制与图传 Web 服务器构建：基于 Flask 框架搭建嵌入式 Web 服务器。采用流式传输机制实现低延迟实时视频流（MJPEG）网页端渲染与显示。",
+        "端侧 AI 部署与并发优化：部署 YOLO 目标检测模型。构建高效多线程池架构，将图像拉流、NPU 硬件推理与坐标后处理解耦为异步流水线。",
+        "多任务异构底层协同与精细运动控制：基于 STM32 平台定制 FreeRTOS 多任务实时操作系统。设计高可靠性自定义帧格式校验协议，通过 DMA 串口实现超低延迟双向通信。"
+      ]
+    }
+  };
+
+  function dutySummary(duty) {
+    const idx = duty.indexOf("：");
+    return idx > 0 ? duty.substring(0, idx) : duty.split(":")[0];
+  }
+
+  const container = document.getElementById("projectsContainer");
+  const ids = ["proj1","proj2","proj3","proj6","proj4"];
+
+  ids.forEach(id => {
+    const d = projectData[id];
+    const n = d.images.length;
+
+    // Build images HTML based on count
+    let imagesHTML;
+    if (n === 1) {
+      imagesHTML = `<img src="${d.images[0]}" alt="${d.title}" loading="lazy">`;
+    } else if (n === 3) {
+      imagesHTML = `
+        <img src="${d.images[0]}" alt="${d.title}" loading="lazy" class="img-main">
+        <div class="img-stack">
+          <img src="${d.images[1]}" alt="${d.title}" loading="lazy">
+          <img src="${d.images[2]}" alt="${d.title}" loading="lazy">
+        </div>`;
+    } else {
+      imagesHTML = d.images.map(src =>
+        `<img src="${src}" alt="${d.title}" loading="lazy">`
+      ).join("");
+    }
+
+    const tagsHTML = d.tags.map(t => `<span class="tag">${t}</span>`).join(" ");
+    const dutiesHTML = d.duties.map((duty, i) =>
+      `<li><strong>${i+1}.</strong> ${duty}</li>`
+    ).join("");
+
+    const card = document.createElement("div");
+    card.className = "proj-detail reveal";
+    card.innerHTML = `
+      <h2>${d.title}</h2>
+      <div class="proj-split">
+        <div class="proj-left img-${n}">${imagesHTML}</div>
+        <div class="proj-right">
+          <div class="meta-block">
+            <h4>项目描述</h4>
+            <p>${d.desc}</p>
+          </div>
+          <div class="meta-block">
+            <h4>技术栈</h4>
+            <div class="tags-row">${tagsHTML}</div>
+          </div>
+          <div class="meta-block">
+            <h4>⚙️ 项目职责</h4>
+            <ol class="duties-list">${dutiesHTML}</ol>
+          </div>
+        </div>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+
+  // Click image → modal with full details
+  document.querySelectorAll(".proj-left img").forEach(img => {
+    img.addEventListener("click", function() {
+      const src = this.getAttribute("src");
+      let found;
+      for (const id of ids) {
+        if (projectData[id].images.includes(src)) { found = projectData[id]; break; }
+      }
+      if (!found) return;
+      const d = found;
+      const imagesHTML = d.images.map(s => `<img src="${s}" alt="">`).join("");
+      const tagsHTML = d.tags.map(t => `<span class="tag">${t}</span>`).join(" ");
+      const dutiesHTML = d.duties.map((duty,i) => `<div><strong>${i+1}.</strong> ${duty}</div>`).join("");
+
+      modal.open(`
+        <h2>${d.title}</h2>
+        <p class="desc">${d.desc}</p>
+        <div class="modal-gallery">${imagesHTML}</div>
+        <div style="margin:12px 0;">${tagsHTML}</div>
+        <h3>⚙️ 项目职责</h3>
+        <div class="modal-duties">${dutiesHTML}</div>
+      `);
+    });
+  });
+</script>
+</body>
+</html>
